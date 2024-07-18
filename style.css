@@ -1,0 +1,54 @@
+ body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color:slateblue;
+            color: whitesmoke;
+            font-family: cursive;
+        }
+
+
+        .container {
+            width: 100%;
+            overflow: hidden;
+        }
+        .container>:nth-child(1) {
+           font-size: 2rem;
+           text-transform: uppercase;
+           letter-spacing: 4px;
+        }
+        .container > :nth-child(2) {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 5rem;
+            font-weight: bold;
+        }
+        .countdown {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color:rgba(0, 0, 0, .1);
+            padding: 30px; 
+            width: 100%;
+        }
+
+        .countdown > div {
+           font-size: 3rem;
+           margin: 0 30px;
+           font-weight: 600;
+        }
+
+        .countdown > div p {
+            margin-top: 5px;
+            font-size: .8rem;
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        
