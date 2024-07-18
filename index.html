@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New-year</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color:slateblue;
+            color: whitesmoke;
+            font-family: cursive;
+        }
+
+
+        .container {
+            width: 100%;
+            overflow: hidden;
+        }
+        .container>:nth-child(1) {
+           font-size: 2rem;
+           text-transform: uppercase;
+           letter-spacing: 4px;
+        }
+        .container > :nth-child(2) {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 5rem;
+            font-weight: bold;
+        }
+        .countdown {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color:rgba(0, 0, 0, .1);
+            padding: 30px; 
+            width: 100%;
+        }
+
+        .countdown > div {
+           font-size: 3rem;
+           margin: 0 30px;
+           font-weight: 600;
+        }
+
+        .countdown > div p {
+            margin-top: 5px;
+            font-size: .8rem;
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>countdown to new year</p>
+        <p>2025</p>
+        <div class="countdown">
+            <div>00 <p>days</p> </div>
+            <div>00 <p>hours</p> </div>
+            <div>00 <p>minutes</p> </div>
+            <div>00 <p>seconds</p> </div>
+        </div>
+    </div>
+    <script>
+        
+
+        const setCountdown = document.querySelectorAll('.countdown div');
+
+        function updateCountdown(){
+        
+        const newYear = new Date("December 31, 2024 23:59:59").getTime();
+        const currentDate =  Date.now();
+        const leftTime = newYear - currentDate;
+
+        const t = {
+            seconds: 1000,
+            minutes: 1000 * 60,     
+            hours: 60000 * 60,
+            days: 3600000 * 24 
+        }
+
+        const days = Math.floor(leftTime / t.days);
+        const hours = Math.floor(leftTime % t.days / t.hours);
+        const minutes = Math.floor(leftTime % t.hours / t.minutes);
+        const seconds = Math.floor(leftTime % t.minutes / t.seconds);
+
+        const dateArr = [days, hours, minutes, seconds];
+        const dateTypeArr = ['days', 'hours', 'minutes', 'seconds'];
+
+        setCountdown.forEach((el, idx) => {
+            el.innerHTML = `<div class="set">${dateArr[idx]}<p>${dateTypeArr[idx]}</p></div>`;
+        });
+
+        setTimeout(updateCountdown, 1000);
+    }
+
+    updateCountdown();
+
+    </script>
+
+</body>
+</html>
